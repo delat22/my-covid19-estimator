@@ -33,7 +33,7 @@ def getTime(duration, figure):
 
 
 
-def estimator(**data):
+def estimator(data):
   days = getTime(data['periodType'], data['timeToElapse'])
 
   currentlyInfected = data['reportedCases']*10
@@ -53,6 +53,6 @@ def estimator(**data):
 
   }
   return {"data": data, "impact": impact, "severeImpact": severeImpact} 
-print(estimator(**data))
+
 
 
