@@ -26,13 +26,6 @@ def getTime(duration, figure):
     return figure*7
   else:
     return figure
-
-
-
-
-
-
-
 def estimator(data):
   days = getTime(data['periodType'], data['timeToElapse'])
 
