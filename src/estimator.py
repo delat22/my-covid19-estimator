@@ -16,12 +16,25 @@ data = {
 
 
 def estimator(data):
+
+  currentelyInfected = data['reportedCases'] * 10
+  severeCurrentlyInfected = data['reportedCases'] * 50
+
+  infectionsByRequestedTime = timeEstimate(data[currentelyInfected], days)
+  severeInfectionsByRequestedTime = timeEstimate(data[severeCurrentlyInfected], days)
+
+
+
   
-  impact = {
+  impact = {"currentelyInfected": currentelyInfected, "infectionsByRequestedTime": infectionsByRequestedTime
 
   }
 
-  severeImpact = {
+  severeImpact = {"severeCurrentlyInfected": severeCurrentlyInfected, "severeInfectionsByRequestedTime": severeInfectionsByRequestedTime
 
   }
   return {"data": data, "impact": impact, "severeImpact": severeImpact} 
+
+def timeEstimate(currentelyInfected, time):
+  factor = math.trunc(time/3)
+  return currentelyInfected * 2 ** factor
