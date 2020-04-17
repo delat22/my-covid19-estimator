@@ -1,4 +1,4 @@
-
+import math
 
 data = {
     "region": {
@@ -15,18 +15,37 @@ data = {
 }
 
 
-def estimator(data):
+def timeEstimate(currentlyInfected, time):
+  factor = math.trunc(time/3)
+  return currentlyInfected*2**factor
 
-  currentelyInfected = data['reportedCases'] * 10
-  severeCurrentlyInfected = data['reportedCases'] * 50
+def getTime(duration, figure):
+  if duration == 'months':
+    return figure*30
+  elif duration == 'weeks':
+    return figure*7
+  else:
+    return figure
 
-  infectionsByRequestedTime = timeEstimate(data[currentelyInfected], days)
-  severeInfectionsByRequestedTime = timeEstimate(data[severeCurrentlyInfected], days)
+
+
+
+
+
+
+def estimator(**data):
+  days = getTime(data['periodType'], data['timeToElapse'])
+
+  currentlyInfected = data['reportedCases']*10
+  severeCurrentlyInfected = data['reportedCases']*50
+
+  infectionsByRequestedTime = timeEstimate(currentlyInfected, days)
+  severeInfectionsByRequestedTime = timeEstimate(severeCurrentlyInfected, days)
 
 
 
   
-  impact = {"currentelyInfected": currentelyInfected, "infectionsByRequestedTime": infectionsByRequestedTime
+  impact = {"currentelyInfected": currentlyInfected, "infectionsByRequestedTime": infectionsByRequestedTime
 
   }
 
@@ -34,7 +53,6 @@ def estimator(data):
 
   }
   return {"data": data, "impact": impact, "severeImpact": severeImpact} 
+print(estimator(**data))
 
-def timeEstimate(currentelyInfected, time):
-  factor = math.trunc(time/3)
-  return currentelyInfected * 2 ** factor
+
