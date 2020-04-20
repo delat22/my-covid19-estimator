@@ -45,5 +45,6 @@ def estimator(**data):
   severeImpact = {"severeCurrentlyInfected": severeCurrentlyInfected, "severeInfectionsByRequestedTime": severeInfectionsByRequestedTime
 
   }
-  return {"data": data, "impact": impact, "severeImpact": severeImpact} 
+  output = {"data": data, "impact": impact, "severeImpact": severeImpact}
+  return output
 
