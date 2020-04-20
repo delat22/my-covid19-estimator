@@ -38,11 +38,11 @@ def estimator(data):
 
 
   
-  impact = {"currentlyInfected": currentlyInfected, "infectionsByRequestedTime": infectionsByRequestedTime
+  impact = {"currentlyInfected": int(currentlyInfected), "infectionsByRequestedTime": int(infectionsByRequestedTime)
 
   }
 
-  severeImpact = {"severeCurrentlyInfected": severeCurrentlyInfected, "severeInfectionsByRequestedTime": severeInfectionsByRequestedTime
+  severeImpact = {"severeCurrentlyInfected": int(severeCurrentlyInfected), "severeInfectionsByRequestedTime": int(severeInfectionsByRequestedTime)
 
   }
   output = {"data": data, "impact": impact, "severeImpact": severeImpact}
