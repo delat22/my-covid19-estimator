@@ -17,7 +17,7 @@ data = {
 
 def timeEstimate(currentlyInfected, time):
   factor = math.trunc(time/3)
-  return currentlyInfected*2**factor
+  return currentlyInfected*(2**factor)
 
 def getTime(duration, figure):
   if duration == 'months':
