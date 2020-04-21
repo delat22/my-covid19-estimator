@@ -18,7 +18,7 @@ def estimator(data):
   severeImpact = {"severeCurrentlyInfected": int(severeCurrentlyInfected), "severeInfectionsByRequestedTime": int(severeInfectionsByRequestedTime)
 
   }
-   {"data": data, "impact": impact, "severeImpact": severeImpact}
+  
   return {"data": data, "impact": impact, "severeImpact": severeImpact}
 
 def timeEstimate(currentlyInfected, time):
